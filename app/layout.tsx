@@ -1,7 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
 import { CartProvider } from "./context/CartContext";
 import MusicPlayer from "./components/MusicPlayer";
 
@@ -18,7 +17,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Olympia",
   description: "فروشگاه مکمل ورزشی المپیا",
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -35,7 +38,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#0b0b0b]">
         <CartProvider>
           {children}
-
           {/* موزیک پلیر فقط یک بار در کل سایت */}
           <MusicPlayer />
         </CartProvider>
