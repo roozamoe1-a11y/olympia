@@ -1,11 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import {
+  Autoplay,
+  Pagination,
+  Navigation,
+  EffectFade,
+} from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/effect-fade";
 
 const slides = [
   "/images/hero1.jpg",
@@ -16,31 +23,69 @@ const slides = [
 
 export default function HeroSlider() {
   return (
-    <Swiper
-      modules={[Autoplay, Pagination, Navigation]}
-      autoplay={{
-        delay: 4000,
-        disableOnInteraction: false,
-      }}
-      pagination={{ clickable: true }}
-      navigation
-      loop
-      className="w-full h-[220px] sm:h-[320px] md:h-[500px] lg:h-screen"
-    >
-      {slides.map((image, index) => (
-        <SwiperSlide key={index}>
-          <div className="relative w-full h-full">
-            <img
-              src={image}
-              alt={`Olympia Banner ${index + 1}`}
-              className="w-full h-full object-contain bg-black"
-              draggable={false}
-            />
+    <section className="relative w-full overflow-hidden bg-black">
 
-            <div className="absolute inset-0 bg-black/20"></div>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+      <Swiper
+        modules={[
+          Autoplay,
+          Pagination,
+          Navigation,
+          EffectFade,
+        ]}
+        effect="fade"
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation
+        loop
+        speed={900}
+        className="
+          w-full
+          h-[240px]
+          sm:h-[340px]
+          md:h-[520px]
+          lg:h-[700px]
+        "
+      >
+      
+          {slides.map((image, index) => (
+            <SwiperSlide key={image}>
+
+              <div className="relative h-full w-full">
+
+                <Image
+                  src={image}
+                  alt={`فروشگاه المپیا شماره بنر${index + 1}`}
+                  fill
+                  priority={index === 0}
+                  sizes="100vw"
+                  className="
+                    object-cover
+                    object-center
+                  "
+                />
+
+                {/* لایه تیره برای خوانایی بهتر */}
+                <div className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-t
+                  from-black/60
+                  via-black/20
+                  to-black/10
+                " />
+
+              </div>
+
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+    </section>
   );
 }
