@@ -1,26 +1,41 @@
-export const products = [
+export type Product = {
+  id: number;
+  name: string;
+  brand: string;
+  image: string;
+  price: number;
+  oldPrice?: number;
+  discount?: number;
+  rating?: string;
+  stock?: boolean;
+  category?: string;
+};
+
+
+export const products: Product[] = [
   {
     id: 1,
-    name: "وی پروتئین",
-    price: 3450000,
+    name: "Gold Standard Whey",
+    brand: "Optimum Nutrition",
     image: "/images/whey.jpg",
+    price: 4390000,
+    oldPrice: 4990000,
+    discount: 12,
+    rating: "★★★★★",
+    stock: true,
+    category: "پروتئین",
   },
+
   {
     id: 2,
-    name: "کراتین مونوهیدرات",
-    price: 1980000,
-    image: "/images/hero2.jpg",
-  },
-  {
-    id: 3,
-    name: "بی سی ای ای",
-    price: 2350000,
-    image: "/images/isoxp.jpg",
-  },
-  {
-    id: 4,
-    name: "گلوتامین",
-    price: 1790000,
+    name: "Gold Whey",
+    brand: "Kevin Levrone",
     image: "/images/levrone.jpg",
+    price: 3890000,
+    oldPrice: 4350000,
+    discount: 10,
+    rating: "★★★★★",
+    stock: true,
+    category: "پروتئین",
   },
 ];
