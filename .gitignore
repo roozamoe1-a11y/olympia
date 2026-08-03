@@ -42,3 +42,11 @@ next-env.d.ts
 olympia-backup.zip
 
 /lib/generated/prisma
+
+# AI tools
+.agents/
+.claude/
+.windsurf/
+AGENTS.md
+CLAUDE.md
+skills-lock.json
