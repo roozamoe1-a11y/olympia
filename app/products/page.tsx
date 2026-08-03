@@ -1,7 +1,7 @@
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import ProductCard from "../components/products/ProductCard";
-import { products } from "../data/products";
+import { products } from "@/app/data/products";
 
 export default function ProductsPage() {
   return (
@@ -19,7 +19,7 @@ export default function ProductsPage() {
             تمامی مکمل‌های ورزشی اورجینال
           </p>
 
-          <div className="grid sm:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {products.map((product) => (
               <ProductCard
                 key={product.id}
